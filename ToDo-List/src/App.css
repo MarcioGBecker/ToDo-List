@@ -47,6 +47,12 @@ button:hover {
   opacity: 1;
 }
 
+.todo-list {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  
+}
+
 .complete {
   background-color: #5cb85c;
 }

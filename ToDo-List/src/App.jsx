@@ -7,7 +7,7 @@ import './App.css';
 
 
 function App() {
-  const [ToDos, setTodos] = useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
       text: "Criar funcionalidade X no sistema",
@@ -30,7 +30,8 @@ function App() {
 
   const addTodo = (text, category) => {
 
-    const newTodos = [...todos, 
+    const newTodos = [
+      ...todos, 
       {
       id: Math.floor(Math.random() * 10000),
       text,
@@ -38,17 +39,19 @@ function App() {
       isCompleted: false,
       },
     ];
+
+    setTodos(newTodos);
   };
 
   return (
     <div className='app'>
       <h1>Lista de Tarefas</h1>
       <div className='todo-list'>
-        {ToDos.map((todo) => ( //irá revisar todos os "ToDos" e classifica-los abaixo
+        {todos.map((todo) => ( //irá revisar todos os "ToDos" e classifica-los abaixo
           <ToDo key={todo.id} todo={todo} /> //deixa linkado com o ToDo.jsx por meio da const ToDo = ({todo})
         ))}
       </div>
-      <ToDoForm />
+      <ToDoForm addTodo={addTodo}/>
     </div>
   )
 }

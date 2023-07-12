@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ToDoForm = () => {
+const ToDoForm = ({addTodo}) => {
 
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
@@ -8,7 +8,7 @@ const ToDoForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(!value || !category) return;
-    //add ToDo
+    addTodo(value, category);  //add ToDo
     setValue("");  //limpar os campos
     setCategory("");  //limpar os campos
   };
