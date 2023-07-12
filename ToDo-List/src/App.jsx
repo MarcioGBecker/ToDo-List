@@ -43,12 +43,27 @@ function App() {
     setTodos(newTodos);
   };
 
+  const removeTodo = (id) => {
+    const newTodos = [...todos]
+    const filteredTodos = newTodos.filter(todo => 
+      todo.id !== id ? todo : null
+    );
+    setTodos(filteredTodos);
+  }
+
+  const completeTodo = (id) => {
+    const newTodos = [...todos]
+    newTodos.map((todo) => 
+    todo.id === id ? todo.isCompleted = !todo.isCompleted : todo);
+    setTodos(newTodos);
+  }
+
   return (
     <div className='app'>
       <h1>Lista de Tarefas</h1>
       <div className='todo-list'>
         {todos.map((todo) => ( //irá revisar todos os "ToDos" e classifica-los abaixo
-          <ToDo key={todo.id} todo={todo} /> //deixa linkado com o ToDo.jsx por meio da const ToDo = ({todo})
+          <ToDo key={todo.id} todo={todo} removeTodo={removeTodo} completeTodo={completeTodo} /> //deixa linkado com o ToDo.jsx por meio da const ToDo = ({todo})
         ))}
       </div>
       <ToDoForm addTodo={addTodo}/>
