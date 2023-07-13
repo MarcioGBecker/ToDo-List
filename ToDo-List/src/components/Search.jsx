@@ -1,4 +1,4 @@
-const search = ({search, setSearch}) => {
+const Search = ({search, setSearch}) => {
   return (
     <div className="search">
         <h2>Pesquisar:</h2>
@@ -12,4 +12,4 @@ const search = ({search, setSearch}) => {
   )
 }
 
-export default search
+export default Search;
